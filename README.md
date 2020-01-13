@@ -35,4 +35,4 @@ This assignment focused on building a website for searching weather with HTML, C
 This assignment focused on building a responsive web application for searching weather using HTML5, Bootstrap, and Angular for the client side and Node.js for server side and deployed on the cloud.
 
 ### Homework 9: Mobile App Development Android / iOS
-This assignment focused on building an Android or iOS app for searching weather. This assignment is a mobile application version of homework 8.
+This assignment focused on building an Android or iOS app for searching weather. This project is a mobile application version of homework 8.
