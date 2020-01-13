@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang = "en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>View Cars</title>
+	<script type="text/javascript"></script>
+
+</head>
+
+<body>
+	<h1 style="font-size : 12pt; text-align:center; padding-top: 12vh">Enter URL for largest manufacturers by production (2017) List JSON File</h1>
+	<form style="font-size : 12pt; text-align:center; padding-top: 0.4vh" name="myform" method="POST" id="location">
+		<input  type="text" name="URL" maxlength="255" size="20"/>
+		<br/>
+		<input style="margin-top: 1.5vh" type="submit" name="submit" value="Submit Query" align="center" onClick="viewJSON(this.form)"/>
+	</form>
+
+	<script type="text/javascript">
+
+
+	// Function to process JSON file, load it and dynamically create an html page with the JSON file's contents
+	function viewJSON(what) {
+		// Get the string inputted by the user
+		let URL = what.URL.value;
+
+	// Function for a synchronous get request for the  JSON file, and parsing it and returning it as a javascript object
+	function loadJSON(url) {
+		let xmlhttp = new XMLHttpRequest();
+		xmlhttp.open("GET", url, false); //synchronous
+		xmlhttp.send();
+		jsonObj = JSON.parse(xmlhttp.responseText);
+		return jsonObj;
+	}
+
+	// Function to process the parsed JSON file to create a web page filled with the contents of the JSON file
+	function generateHTML(jsonObj) {
+		let root = jsonObj.DocumentElement;
+		html_text = "<html><head><title>Largest Manufacturers by Production (2017)</title></head><body>";
+		html_text += "<table border='2' align='center'>";
+
+		// Store headers array of strings
+		headers = jsonObj.Mainline.Table.Header.Data;
+		html_text += "<tbody>"
+		html_text += "<tr>";
+		for(i = 0; i < headers.length; i++) {
+			html_text += "<th>"+headers[i]+"</th>";
+		}
+		html_text +="</tr>";
+
+		// Store array of car data objects
+		data = jsonObj.Mainline.Table.Row;
+
+		// Set fixed dimensions to be used for the logo
+		const x = 180;
+		const y = 180;
+
+		// Iterate over all car data objects
+		for(i = 0; i < data.length; i++) {
+			let carNodeList = data[i];
+			html_text += "<tr>";
+			let car_keys = Object.keys(carNodeList);
+			for(j = 0; j < car_keys.length; j++) {
+				car_key = car_keys[j];
+				if (car_key == "Hubs") {
+					html_text += "<td>";
+					let country = carNodeList[car_key].Hub;
+					html_text += "<ul>";
+
+					let counter = 0;
+					for (k = 0; k < country.length; k++) {
+
+						// Only add entry if its not null
+						if (country[k] == null) country[k] = "";
+
+						if(country[k] != "") {
+							if (counter == 0) {
+								html_text += "<li><b>" + country[k] + "</b></li>";
+							} else {
+								html_text += "<li>" + country[k] + "</li>";
+							}
+						}
+						
+						counter++;
+					}
+
+					html_text += "</td></ul>";
+				} else if(car_key == "HomePage") {
+					html_text += "<td>";
+					if (carNodeList[car_key]) {
+						html_text += "<a href='"+  carNodeList[car_key] +"'>"+ carNodeList[car_key] +"</a>";
+					}
+					html_text += "</td>";
+				} else if(car_key == "Logo") {
+					html_text += "<td>";
+					if (carNodeList[car_key]) {
+						html_text += "<img src ='"+ carNodeList[car_key] +"' width='"+x+"'height='"+y+"'/>"
+					}
+					html_text += "</td>";
+				} else {
+					html_text += "<td>";
+					if (carNodeList[car_key]) {
+						html_text += carNodeList[car_key];
+					}
+					html_text += "</td>";
+				}
+			}
+			html_text += "</tr>";
+		}
+
+		html_text += "</tbody>";
+		html_text += "</table>"
+		html_text += "</body></html>";
+	}
+
+	// Try to load JSON file, if unsucessful output appropriate message
+	try {
+		jsonObj = loadJSON(URL);
+		try {
+			jsonObj.onload = generateHTML(jsonObj);
+			hWin = window.open("", "Assignment4", "height=900,width=1000");
+			hWin.document.write(html_text);
+			hWin.document.close();
+		}
+		catch {
+			alert("JSON file does not contain any car manufacturers");
+		}
+	}
+	catch {
+		alert("JSON file does not exist");
+	}
+}
+
+	</script>
+</body>
+</html>
