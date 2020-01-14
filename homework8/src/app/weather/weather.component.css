@@ -1,0 +1,17 @@
+#formId {
+  background-color: #6592AD;
+  color: white;
+}
+.form-group.required .control-label:after {
+    content:"*";
+    color:red;
+  }
+
+  .alert {
+    color:red;
+  }
+
+  .required-field::after {
+    content: "*";
+    color: red;
+}

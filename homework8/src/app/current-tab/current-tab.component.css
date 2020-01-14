@@ -1,0 +1,79 @@
+#weatherObjContainer {
+  background-color: #9BD1F1;
+}
+
+#summaryTemperaturePicture {
+  width :17px;
+  height :17px;
+}
+
+.summaryTableIcon {
+  font-size: 0;
+  width :34px;
+  height :34px;
+}
+
+#summaryTemperaturePicture {
+    margin:0;
+    text-align: center;
+    display: inline-block;
+    background-color: inherit;
+
+    width :17px;
+    height :17px;
+    padding: 30px 8px;
+  }
+
+  #summaryTable {
+    font-size: 0;
+    width: 560px;
+    margin: 10px auto auto -9px;
+    padding-bottom: 15px;
+    text-align: center;
+    color:white;
+    background-color: inherit;
+    border-radius:20px;
+  }
+
+  .summaryTableIcon {
+    font-size: 0;
+    width :34px;
+    height :34px;
+  }
+  
+  #summaryTemperature, #summaryTemperaturePicture, #summaryTemperatureUnit {
+    margin:0;
+    text-align: center;
+    display: inline-block;
+    background-color: inherit;
+  }
+
+  #summaryTemperature, #summarySummary, .summaryTableValue {
+    font-weight: bold;
+  }
+
+  #summaryTemperature {
+    margin:0;
+    padding:0;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 85pt;
+  }
+
+  #summaryTemperatureUnit {
+    font-size: 40pt;
+    font-weight: bold;
+    vertical-align: bottom;
+    padding-bottom: 15px;
+  }
+
+  #summarySummary {
+    font-size: 34pt;
+  }
+
+  .summaryTableValue {
+    font-size: 21pt;
+    background-color: inherit;
+    border-radius:20px;
+  }
+  

@@ -1,0 +1,21 @@
+<div class="container">
+
+  <table class="table table-striped">
+    <tr>
+      <th>#</th>
+      <th>Image</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Favorites</th>
+    </tr>
+    <tr *ngFor="let fav of favs">
+      <td>{{fav.id}}</td>
+      <td><img class="favImages" src='{{fav.imageLink}}'></td>
+      <td>{{fav.city}}</td>
+      <td>{{fav.state}}</td>
+      <td><button (click)="this.favoritesService.removeFav(fav.id)"><i
+            class="material-icons yellowTrash">delete</i></button></td>
+    </tr>
+  </table>
+
+</div>

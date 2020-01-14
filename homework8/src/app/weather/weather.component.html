@@ -1,0 +1,48 @@
+<div class="container">
+    <form id="formId" [formGroup]="form" (ngSubmit)="onSubmit(form.value)" #formDir="ngForm">
+
+        <div class="form-group">
+            <label class="form-control-label control-label required-field" for="street">Street</label>
+            <input type="text" name="street" id="street" placeholder="Enter Street Name" class="form-control w-75"
+                formControlName="street" required>
+            <div *ngIf="form.get('street').invalid && (form.get('street').dirty || form.get('street').touched)"
+                class="alert">Please enter
+                a street.</div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label required-field" for="city">City</label>
+            <input matInput type="text" name="city" id="city" placeholder="Enter City Name" formControlName="city"
+                [matAutocomplete]="auto" class="form-control w-75" required>
+
+            <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+                <mat-option *ngFor="let city of filteredCities" [value]="city">
+                    <span>{{city}}</span>
+                </mat-option>
+            </mat-autocomplete>
+            <div *ngIf="form.get('city').invalid && (form.get('city').dirty || form.get('city').touched)" class="alert">
+                Please enter a city.</div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label required-field" for="state">State</label>
+            <select name="state" id="state" formControlName="state">
+                <option *ngFor="let state of states;" [value]="state.Abbreviation">
+                    {{ state.State }}
+                </option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="currentLocation">Current Location</label>
+            <input type="checkbox" name="currentLocation" id="currentLocation" formControlName="currentLocation">
+        </div>
+
+        <button class="btn btn-light" type="submit" [disabled]="form.invalid"><i class="material-icons">search</i>Search</button>
+        <button class="btn btn-light" type="reset" (click)="onClear()"><i class="material-icons">clear_all</i>Clear</button>
+    </form>
+    <a class="button fancy-button">Results</a>
+    <a [routerLink]="['/favorites']" class="button fancy-button">Favorites</a>
+    
+    <router-outlet></router-outlet>
+</div>

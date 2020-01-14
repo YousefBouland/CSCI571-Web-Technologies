@@ -1,0 +1,34 @@
+<p *ngIf="!loadedYet;"><ngb-progressbar value="500" type="info"></ngb-progressbar></p>
+<div class="container">
+  
+  <div id="weatherObjContainer" *ngIf="weatherObj">
+    <a class="twitter-share-button" target="_blank"
+      href="https://twitter.com/intent/tweet?text=The current temperature at {{city}} is {{weatherObj.currently.temperature}}%C2%B0 F. The weather conditions are {{weatherObj.currently.summary}}. &hashtags=CSCI571WeatherSearch"
+      id="twitterLink"><img class="border border-0 border-light"
+        src="http://csci571.com/hw/hw8/Images/Twitter.png"></a>
+    <!-- 
+       Need to change the following (click) to a function that chooses between add/remove.
+       Need to change value of star_border to interpolated variable
+    -->
+    <button (click)="toggleFavorite()"><i class="material-icons" [class.ylw]="starValue=='star'">{{starValue}}</i></button>
+    <ngb-tabset>
+      <ngb-tab title="Current">
+        <ng-template ngbTabContent>
+          <app-current-tab [city]="city" [weatherObj]="weatherObj" [imageLink]="imageLink"></app-current-tab>
+        </ng-template>
+      </ngb-tab>
+      <ngb-tab title="Hourly">
+        <ng-template ngbTabContent>
+          <app-hourly-tab [hourlyData]="hourlyData"></app-hourly-tab>
+        </ng-template>
+      </ngb-tab>
+      <ngb-tab title="Weekly">
+        <ng-template ngbTabContent>
+          <app-weekly-tab [dailyData]="dailyData" [ResultTimeZone]="ResultTimeZone"></app-weekly-tab>
+        </ng-template>
+      </ngb-tab>
+
+    </ngb-tabset>
+
+  </div>
+</div>

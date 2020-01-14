@@ -1,0 +1,23 @@
+#weatherObjContainer {
+    background-color:#6592AD;
+}
+
+#twitterLink {
+    float:right;
+    background: white;
+    margin-left: -8vw;
+}
+
+a#twitterLink.twitter-share-button {
+    float:right;
+}
+
+ img {
+    width :40px;
+    height :40px;
+    margin-left: -8vw;;
+} 
+
+.material-icons.ylw{
+  color: #ffbf00;
+}

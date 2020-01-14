@@ -1,0 +1,14 @@
+.material-icons.yellowTrash { color: #d2a641; }
+
+.favImages {
+    height: 50px;
+    width: 50px;
+}
+
+.table tr:nth-child(odd) {
+    background: #6592AD;
+}
+
+.table tr:nth-child(even) {
+    background: #9BD1F1;
+}

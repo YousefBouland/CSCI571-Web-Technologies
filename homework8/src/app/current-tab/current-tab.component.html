@@ -1,0 +1,39 @@
+<div class="container">
+  <div id="weatherObjContainer" *ngIf="weatherObj">
+
+    <div>{{city}}</div>
+    <div>{{weatherObj.timezone}}</div>
+    <div>{{weatherObj.currently.temperature}}<img id='summaryTemperaturePicture'
+        src='https://cdn3.iconfinder.com/data/icons/virtual-notebook/16/button_shape_oval-512.png' />
+      <p id='summaryTemperatureUnit'>F</p>
+    </div>
+    <div>{{weatherObj.currently.summary}}</div>
+    <div class="float-right" style="width:10vw; height: 10vh;">
+      <img class="img-fluid " style="max-width: 100%; height: auto;" src={{imageLink}} />
+    </div>
+    <table class="table" id='summaryTable'>
+      <tr>
+        <td><img class='summaryTableIcon' src='https://cdn2.iconfinder.com/data/icons/weather-74/24/weather-16-512.png'
+            alt='Humidity' title='Humidity' /></td>
+        <td><img class='summaryTableIcon' src='https://cdn2.iconfinder.com/data/icons/weather-74/24/weather-25-512.png'
+            alt='Pressure' title='Pressure' /></td>
+        <td><img class='summaryTableIcon' src='https://cdn2.iconfinder.com/data/icons/weather-74/24/weather-27-512.png'
+            alt='Wind Speed' title='Wind Speed' /></td>
+        <td><img class='summaryTableIcon' src='https://cdn2.iconfinder.com/data/icons/weather-74/24/weather-30-512.png'
+            alt='Visibility' title='Visibility' /></td>
+        <td><img class='summaryTableIcon' src='https://cdn2.iconfinder.com/data/icons/weather-74/24/weather-28-512.png'
+            alt='Cloud Cover' title='Cloud Cover' /></td>
+        <td><img class='summaryTableIcon' src='https://cdn2.iconfinder.com/data/icons/weather-74/24/weather-24-512.png'
+            alt='Ozone' title='Ozone' /></td>
+      </tr>
+      <tr>
+        <td class='summaryTableValue'>{{weatherObj.currently.humidity}}</td>
+        <td class='summaryTableValue'>{{weatherObj.currently.pressure}}</td>
+        <td class='summaryTableValue'>{{weatherObj.currently.windSpeed}}</td>
+        <td class='summaryTableValue'>{{weatherObj.currently.visibility}}</td>
+        <td class='summaryTableValue'> {{weatherObj.currently.cloudCover}}</td>
+        <td class='summaryTableValue'>{{weatherObj.currently.ozone}}</td>
+      </tr>
+    </table>
+  </div>
+</div>
