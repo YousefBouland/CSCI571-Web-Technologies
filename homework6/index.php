@@ -1,7 +1,8 @@
 <?php
 if($_POST["latitude"]){
-/* PHP server content
- POST request for detailed weather info */
+/* PHP, HTML, CSS and JS included in one file as per assignemnt requirement
+  PHP server content
+  POST request for detailed weather info */
   define('DarkskyApiKey','Hidden API Key'); //Modified API key for safety
   $DarkskyApiKey = DarkskyApiKey;
   $url_latitude = $_POST['latitude'];
