@@ -42,11 +42,11 @@ public class ApiCall {
     /// server api call format: /autoComplete?input=##
     public static void makeCityAutoCompleteApiCall(Context ctx, String query, Response.Listener<String>
             listener, Response.ErrorListener errorListener) {
-        String url = "https://maps.googleapis.com/maps/api/place/autocomplete/json?input=" + query
-                + "&types=(cities)&language=en&key=AIzaSyDXTkcwPIMqavJUEj614GlBoRMbesk1Yss";
+//        String googleAPIkey = "Hidden API Key";
+//        String url = "https://maps.googleapis.com/maps/api/place/autocomplete/json?input=" + query
+//                + "&types=(cities)&language=en&key=" + googleAPIkey;
 
-        // TODO use hosted server API call before releasing the app
-//        String url = "http://responsiveweatherapp-env.m5ggzbfhjc.us-east-2.elasticbeanstalk.com/autoComplete?input=" + query;
+        String url = "http://responsiveweatherapp-env.m5ggzbfhjc.us-east-2.elasticbeanstalk.com/autoComplete?input=" + query;
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                 listener, errorListener);
         ApiCall.getInstance(ctx).addToRequestQueue(stringRequest);
@@ -56,11 +56,12 @@ public class ApiCall {
     public static void makePhotosSearchApiCall(Context ctx, String query, Response.Listener<String>
             listener, Response.ErrorListener errorListener) throws UnsupportedEncodingException {
 
-        String url = "https://www.googleapis.com/customsearch/v1?q=" + query
-                + "&cx=013503531998323216086:a9zxjglx49t&imgSize=xxlarge&num=8&searchType=image&key=AIzaSyD2SLGi5ugEoK0dQWKaRkbV39MslontTo8";
-        // TODO use hosted server API call before releasing the app
-//        String imageSize= "xxlarge";
-//        String url = "http://responsiveweatherapp-env.m5ggzbfhjc.us-east-2.elasticbeanstalk.com/getCityPhotos?address=" + URLEncoder.encode(query, "utf-8") + "&imgSize=" + imageSize;
+//        String googleAPIkey = "Hidden API Key";
+//        String url = "https://www.googleapis.com/customsearch/v1?q=" + query
+//                + "&cx=013503531998323216086:a9zxjglx49t&imgSize=xxlarge&num=8&searchType=image&key=" + googleAPIkey;
+
+        String imageSize= "xxlarge";
+        String url = "http://responsiveweatherapp-env.m5ggzbfhjc.us-east-2.elasticbeanstalk.com/getCityPhotos?address=" + URLEncoder.encode(query, "utf-8") + "&imgSize=" + imageSize;
 
 
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
