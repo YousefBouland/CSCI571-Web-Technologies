@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+    xmlns:android="http://schemas.android.com/apk/res/android"  android:opacity="opaque">
+    <item android:drawable="@color/colorPrimary"/>
+    <item>
+        <bitmap
+            android:src="@drawable/splash_screen"
+            android:gravity="center"/>
+    </item>
+    <item
+        android:height="800dp">
+        <bitmap
+            android:gravity="bottom|center_horizontal"
+            android:src="@drawable/poweredby_darkbackground"/>
+    </item>
+</layer-list>

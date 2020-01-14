@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">WeatherApp</string>
+    <color name="black">#000000</color>
+    <color name="white">#FFF</color>
+    <color name="yellow">#ffb300</color>
+    <color name="purple">#B28BF5</color>
+    <color name="grey">#999</color>
+    <color name="BGgrey">#1D1D1D</color>
+    <color name="dividerGrey">#3B3A3F</color>
+
+    <color name="chartPurple">#B588ED</color>
+    <color name="chartOrange">#EEAA49</color>
+
+</resources>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="summary_card2_iconSize">55dp</dimen>
+    <dimen name="detailed_iconSize">65dp</dimen>
+    <dimen name="detailed_icon_marginTopFirstRow">30dp</dimen>
+    <dimen name="detailed_icon_marginTop">10dp</dimen>
+    <dimen name="detailed_icon_marginLeft">8dp</dimen>
+    <dimen name="detailed_icon_marginRight">8dp</dimen>
+    <dimen name="detailed_icon_marginBottom">8dp</dimen>
+    <dimen name="detailed_icon_paddingTop">10dp</dimen>
+    <dimen name="detailed_icon_paddingBottom">10dp</dimen>
+    <dimen name="detailed_icon_label_size">16sp</dimen>
+
+    <dimen name="main_card2_textSize">17dp</dimen>
+    <dimen name="detailed_center_iconSize">90dp</dimen>
+
+    <dimen name="detailed_text_paddingTop">5dp</dimen>
+
+
+</resources>
